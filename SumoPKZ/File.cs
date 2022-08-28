@@ -12,9 +12,6 @@ public sealed class File : IFile
 	public string Path { get; }
 	private readonly FileStream _fileStream;
 
-	public void Dispose() => _fileStream.Dispose();
-	public ValueTask DisposeAsync() => _fileStream.DisposeAsync();
-
 	public File(string filePath)
 	{
 		Path = filePath;
@@ -39,4 +36,7 @@ public sealed class File : IFile
 		_fileStream.Seek(16, SeekOrigin.Begin);
 		return _fileStream;
 	}
+
+	public void Dispose() => _fileStream.Dispose();
+	public ValueTask DisposeAsync() => _fileStream.DisposeAsync();
 }
