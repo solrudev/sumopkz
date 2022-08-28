@@ -18,10 +18,7 @@ public static class Utils
         Note: output directory is optional, by default output file will be saved next to the original file with its extension changed.
         """;
 
-	public static bool IsPKM(byte[] fileHeader)
-	{
-		var magicNumber = new ReadOnlySpan<byte>(fileHeader, 0, 3);
-		string magicNumberString = Encoding.UTF8.GetString(magicNumber);
-		return magicNumberString == "PKM";
-	}
+	// magic number: "PKM "
+	public static bool IsPKM(byte[] fileHeader) => fileHeader[0] == 0x50 && fileHeader[1] == 0x4B &&
+	                                               fileHeader[2] == 0x4D && fileHeader[3] == 0x20;
 }
