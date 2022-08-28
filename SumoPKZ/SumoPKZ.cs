@@ -4,18 +4,18 @@ using File = SumoPKZ.File;
 
 if (args.Length == 0 || args[0] == "h" || args[0] == "help")
 {
-    Console.WriteLine(Utils.HelpText);
-    return;
+	Console.WriteLine(Utils.HelpText);
+	return;
 }
 
-CancellationTokenSource cancellationTokenSource = new();
+var cancellationTokenSource = new CancellationTokenSource();
 
 AppDomain.CurrentDomain.ProcessExit += (_, _) => cancellationTokenSource.Dispose();
 
-Console.CancelKeyPress += (_, e) =>
+Console.CancelKeyPress += (_, eventArgs) =>
 {
-    cancellationTokenSource.Cancel();
-    e.Cancel = true;
+	cancellationTokenSource.Cancel();
+	eventArgs.Cancel = true;
 };
 
 string command = args.FirstOrDefault() ?? throw new ArgumentMissingException("command");
@@ -26,9 +26,9 @@ await using var file = new File(inputFile);
 
 Operation operation = command switch
 {
-    "c" or "compress" => new CompressOperation(file, outputPath),
-    "d" or "decompress" => new DecompressOperation(file, outputPath),
-    _ => throw new InvalidArgumentException("command")
+	"c" or "compress" => new CompressOperation(file, outputPath),
+	"d" or "decompress" => new DecompressOperation(file, outputPath),
+	_ => throw new InvalidArgumentException("command")
 };
 
 var operationVisitor = new OperationVisitor(new Compressor(), new Decompressor());
