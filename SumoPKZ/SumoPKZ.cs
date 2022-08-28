@@ -28,7 +28,7 @@ Operation operation = command switch
 {
 	"c" or "compress" => new CompressOperation(file, outputPath),
 	"d" or "decompress" => new DecompressOperation(file, outputPath),
-	_ => throw new InvalidArgumentException("command")
+	_ => throw new UnrecognizedCommandException(command)
 };
 
 var operationVisitor = new OperationVisitor(new Compressor(), new Decompressor());

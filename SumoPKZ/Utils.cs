@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace SumoPKZ;
+﻿namespace SumoPKZ;
 
 public static class Utils
 {
