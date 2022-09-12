@@ -1,6 +1,6 @@
 ﻿namespace SumoPKZ.Exceptions;
 
-public class UnrecognizedCommandException : Exception
+public sealed class UnrecognizedCommandException : Exception
 {
 	public override string Message => $"Unrecognized command: {_command}";
 	private readonly string _command;
