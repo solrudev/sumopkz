@@ -5,7 +5,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <LangVersion>preview</LangVersion>
+        <LangVersion>11</LangVersion>
         <PackageVersion>0.0.3</PackageVersion>
         <Authors>solrudev</Authors>
         <Company>solrudev</Company>
