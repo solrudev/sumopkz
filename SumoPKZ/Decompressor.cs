@@ -20,12 +20,8 @@ public sealed class Decompressor : IDecompressor
 
 		header[6] ^= 0x80;
 
-		string outputPath = operation.OutputPath is null
-			? Path.ChangeExtension(operation.File.Path, "pkm")
-			: Path.Combine(operation.OutputPath, Path.GetFileNameWithoutExtension(operation.File.Path) + ".pkm");
-
 		await using var zlibStream = new ZLibStream(operation.File.GetContent(), CompressionMode.Decompress);
-		await using var outputFileStream = new FileStream(outputPath, FileMode.Create);
+		await using var outputFileStream = new FileStream(operation.OutputPathWithExtension("pkm"), FileMode.Create);
 		await outputFileStream.WriteAsync(header, 0, header.Length, cancellationToken);
 		await zlibStream.CopyToAsync(outputFileStream, cancellationToken);
 	}
