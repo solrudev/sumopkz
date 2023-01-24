@@ -2,14 +2,14 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>11</LangVersion>
-        <PackageVersion>0.0.3</PackageVersion>
+        <PackageVersion>0.0.4</PackageVersion>
         <Authors>solrudev</Authors>
         <Company>solrudev</Company>
-        <AssemblyVersion>0.0.3</AssemblyVersion>
+        <AssemblyVersion>0.0.4</AssemblyVersion>
     </PropertyGroup>
 
 </Project>
