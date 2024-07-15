@@ -4,7 +4,7 @@ public static class Utils
 {
 	public const string HelpText =
 		"""
-        SumoPKZ 0.0.4
+        SumoPKZ 0.0.5
         
         Usage: sumopkz command <input file path> [output directory]
         
